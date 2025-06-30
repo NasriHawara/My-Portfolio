@@ -1,0 +1,11 @@
+{
+  "functions": {
+    "source": "default1",
+    "runtime": "nodejs18",
+    "secrets": [
+      "GMAIL_EMAIL",
+      "GMAIL_APP_PASSWORD",
+      "RECIPIENT_EMAIL"
+    ]
+  }
+}

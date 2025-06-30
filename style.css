@@ -1,0 +1,1473 @@
+/* Universal Styles & Body */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+body {
+    color: #ededed;
+    background: #081b29; /* Set a default background for the body */
+}
+
+/* --- Header Section --- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: transparent; /* Changed to semi-transparent if content scrolls under */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    position: relative;
+    font-size: 25px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 600;
+    overflow: hidden;
+    /* --- ANIMATION ENHANCEMENT --- */
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Start slightly below */
+    transition: opacity 0.6s ease, transform 0.6s ease; /* Smooth transition for content */
+    transition-delay: 0.2s; /* <<< THIS IS THE CHANGE: Logo now appears sooner */
+}
+
+/* --- ANIMATION ENHANCEMENT (Logo trigger) --- */
+body.active-animation .logo {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.navbar a {
+    font-size: 18px;
+    color: #00abf0;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    transition: .3s; /* Existing transition for hover */
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #ededed;
+}
+
+/* --- Home Section --- */
+.home {
+    height: 100vh;
+    background: url('Portfolio.jpg') no-repeat; /* Ensure path is correct */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    padding-top: 100px; /* Base padding to account for header height */
+    overflow: hidden; /* Helps contain animations */
+}
+
+.home-content {
+    max-width: 600px;
+    overflow: hidden; /* Keep this to contain ::before animations */
+    display: flex;             /* Make it a flex container */
+    flex-direction: column;    /* Stack children vertically (h1, p, btn-box) */
+    align-items: center;       /* Center children horizontally in a column flexbox */
+    text-align: center; 
+}
+
+.home-content h1 {
+    position: relative;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+    overflow: hidden; /* Keep this to contain ::before animations */
+    /* --- ANIMATION ENHANCEMENT --- */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition-delay: 2.0s; /* (1s ::before delay + 1s animation = 2s total. Start content fade after that) */
+}
+
+/* --- ANIMATION ENHANCEMENT (H1 trigger) --- */
+body.active-animation .home-content h1 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.home-content h3 {
+    position: relative;
+    font-size: 32px;
+    font-weight: 700;
+    color: #00abf0;
+    overflow: hidden; /* Keep this to contain ::before animations */
+    /* --- ANIMATION ENHANCEMENT --- */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition-delay: 2.3s; /* (1.3s ::before delay + 1s animation = 2.3s total) */
+}
+
+/* --- ANIMATION ENHANCEMENT (H3 trigger) --- */
+body.active-animation .home-content h3 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+.home-content p {
+    position: relative;
+    font-size: 20px;
+    margin: 20px 0 40px;
+    overflow: hidden; /* Keep this to contain ::before animations */
+    /* --- ANIMATION ENHANCEMENT --- */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition-delay: 2.6s; /* (1.6s ::before delay + 1s animation = 2.6s total) */
+}
+
+/* --- ANIMATION ENHANCEMENT (P trigger) --- */
+body.active-animation .home-content p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+.home-content .btn-box {
+    position: relative;
+    display: flex;
+   /* justify-content: space-between;*/
+    flex-wrap: wrap;
+   gap: 20px;
+    max-width: 345px;
+    height: 50px;
+    overflow: hidden; /* Keep this to contain ::before animations */
+    margin-bottom: 40px; /* --- LAYOUT FIX: Added vertical space for wide screens --- */
+    /* --- ANIMATION ENHANCEMENT --- */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition-delay: 2.9s; /* (1.9s ::before delay + 1s animation = 2.9s total) */
+}
+
+/* --- ANIMATION ENHANCEMENT (Btn Box trigger) --- */
+body.active-animation .home-content .btn-box {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+.btn-box a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 100%;
+    background: #00abf0;
+    border: 2px solid #00abf0;
+    border-radius: 8px;
+    font-size: 19px;
+    color: #081b29;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.btn-box a:hover {
+    color: #00abf0;
+}
+
+.btn-box a:nth-child(2) {
+    background: transparent;
+    color: #00abf0;
+}
+
+.btn-box a:nth-child(2):hover {
+    color: #081b29;
+}
+
+.btn-box a:nth-child(2)::before {
+    background: #00abf0;
+}
+
+.btn-box a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #081b29;
+    z-index: -1;
+    transition: .5s;
+}
+
+.btn-box a:hover::before {
+    width: 100%;
+}
+
+.home-sci {
+    width: 225px;
+    display: flex;
+    justify-content: center; /* --- LAYOUT FIX: Centered icons for better spacing --- */
+    overflow: hidden; /* Keep this to contain ::before animations */
+    align-items: center;
+    gap: 15px;
+    /* --- ANIMATION ENHANCEMENT --- */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition-delay: 3.5s; /* (2.5s ::before delay + 1s animation = 3.5s total) */
+}
+
+/* --- ANIMATION ENHANCEMENT (Social Icons trigger) --- */
+body.active-animation .home-sci {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ... (rest of .home-sci::before and .home-sci a remain unchanged) ... */
+
+
+.home-sci a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+    background: transparent;
+    border: 2px solid #00abf0;
+    border-radius: 50%;
+    color: #00abf0;
+    text-decoration: none;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.home-sci a:hover {
+    color: #081b29;
+}
+
+.home-sci a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #00abf0;
+    z-index: -1;
+    transition: .5s;
+}
+
+.home-sci a:hover::before {
+    width: 100%;
+}
+
+.home-imgHover {
+    position: absolute;
+    top: 0;
+    right: 30px;
+    width: 600px;
+    height: 100%;
+    background: transparent;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* --- ANIMATION ENHANCEMENT (Image Hover trigger) --- */
+body.active-animation .home-imgHover {
+    opacity: 1;
+}
+
+
+
+/* --- About Section Styles --- */
+.about {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;   /* Center vertically */
+    min-height: 100vh;
+    background: #081b29;
+    padding: 130px 10% 40px; /* Added dynamic padding-top for header clearance */
+    flex-direction: column; /* Ensure content stacks vertically */
+    color: #ededed;
+    text-align: center; /* Default text alignment for the section */
+}
+
+/* Removed .about-img styles completely as per request */
+/*
+.about-img { ... }
+.about-img img { ... }
+.about-img img:hover { ... }
+*/
+
+.about-content {
+    max-width: 900px; /* Limit content width for readability */
+    width: 100%; /* Ensure it takes available width within max-width */
+    text-align: center; /* Center text and block elements within this container */
+}
+
+.about-content .heading {
+    text-align: center; /* Center the heading explicitly */
+    font-size: 60px;
+    margin-bottom: 20px;
+    color: #ededed;
+}
+
+.about-content .heading span {
+    color: #00abf0;
+}
+
+.about-content h3 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0 auto 30px; /* Center paragraph and add bottom margin */
+    max-width: 700px; /* Limit paragraph width for readability */
+    color: #ededed;
+}
+
+/* Skills Section Styling */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 0 auto 40px; /* Center the skills container and add bottom margin */
+    justify-content: center; /* Center skill categories within the container */
+    max-width: 900px; /* Set a max-width for the skills container */
+}
+
+.skills-category {
+    background: #1f2c3d;
+    padding: 20px 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 171, 240, 0.2);
+    flex: 1 1 200px; /* Allow growing, shrinking, and a base width */
+    min-width: 200px; /* Minimum width for categories */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px #00abf0;
+}
+
+.skills-category h4 {
+    font-size: 22px;
+    color: #00abf0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(0, 171, 240, 0.5);
+    padding-bottom: 10px;
+}
+
+.skills-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skills-category ul li {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 5px;
+    color: #ededed;
+    position: relative;
+    padding-left: 25px;
+    text-align: left; /* Align list items text to the left within the card */
+}
+
+.skills-category ul li::before {
+    content: '\2022';
+    color: #00abf0;
+    font-size: 1.2em;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Download CV Button (reusing .btn-box styles) */
+.about-content .btn-box {
+    display: inline-flex; /* Center single button */
+    width: auto; /* Let content dictate width */
+    padding: 12px 30px; /* Add padding for a better button size */
+    background: #00abf0;
+    color: #081b29;
+    font-weight: 600;
+    font-size: 19px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: .5s;
+    border: 2px solid #00abf0;
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+    justify-content: center; /* Center text inside button */
+}
+
+.about-content .btn-box:hover {
+    color: #00abf0;
+}
+
+.about-content .btn-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #081b29;
+    z-index: -1;
+    transition: .5s;
+}
+
+.about-content .btn-box:hover::before {
+    width: 100%;
+}
+
+
+/* --- Responsive Design --- */
+/* Merged and Consolidated Media Queries */
+
+/* Medium Devices (Tablets, smaller desktops) - max-width: 992px */
+@media (max-width: 992px) {
+    .header {
+        padding: 20px 4%; /* Adjust header padding */
+    }
+
+    .navbar a {
+        margin-left: 25px; /* Reduce spacing between nav links */
+        font-size: 17px;
+    }
+
+    /* Home Section adjustments */
+    .home {
+        padding: 0 4%; /* Adjust home section padding */
+        flex-direction: column; /* Stack content vertically */
+        justify-content: center; /* Center content vertically */
+        text-align: center; /* Center align text */
+        height: auto; /* Allow height to adjust based on content */
+        min-height: 100vh; /* Ensure it still takes full height if content is short */
+        padding-top: 100px; /* Adjusted padding-top for header clearance */
+    }
+
+    .home-content {
+        max-width: 100%; /* Allow content to take full width */
+        margin-bottom: 50px; /* Add space below content before image/socials */
+        text-align: center;
+    }
+
+    .home-content h1 {
+        font-size: 48px;
+    }
+
+    .home-content h3 {
+        font-size: 28px;
+    }
+
+    .home-content p {
+        font-size: 18px;
+        margin: 15px auto 30px; /* Center paragraph and adjust margin */
+        max-width: 90%; /* Constrain paragraph width for readability */
+    }
+
+    .home-content .btn-box {
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .btn-box a {
+        width: 160px;
+        height: 50px;
+    }
+
+    .home-imgHover {
+        position: relative; /* Change to relative for flow */
+        width: 80%;
+        max-width: 400px;
+        height: auto;
+        right: auto;
+        top: auto;
+        margin: 0 auto;
+        pointer-events: auto;
+        opacity: 1;
+    }
+
+    .home-imgHover::after {
+        width: 0; /* Disable wipe effect */
+        background: transparent;
+        animation: none;
+    }
+
+    .home-sci {
+        position: relative;
+        width: 100%;
+        bottom: auto;
+        margin-top: 40px;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .home-sci::before {
+        width: 0; /* Disable wipe effect */
+        background: transparent;
+        animation: none;
+    }
+
+    /* About Section adjustments for tablets (no image) */
+    .about {
+        padding: 120px 4% 40px; /* Adjusted padding-top for header clearance */
+        flex-direction: column; /* Already column */
+        text-align: center; /* Already centered */
+        gap: 30px; /* Reduce gap */
+    }
+
+    .about-content {
+        max-width: 100%; /* Allow content to take full width */
+    }
+
+    .about-content .heading {
+        font-size: 50px;
+    }
+
+    .about-content h3 {
+        font-size: 20px;
+        margin: 0 auto 20px; /* Ensure paragraph is centered */
+    }
+
+    .skills-container {
+        justify-content: center;
+        gap: 20px;
+        margin: 0 auto 40px; /* Ensure skills container is centered */
+    }
+
+    .skills-category {
+        flex: 1 1 180px; /* Allow smaller base width */
+        min-width: 180px;
+        padding: 15px 20px;
+    }
+
+    .skills-category h4 {
+        font-size: 20px;
+    }
+
+    .skills-category ul li {
+        font-size: 16px;
+    }
+
+
+     .project-card:hover {
+        transform: scale(0.9); /* Moderate zoom for tablets. (300px base * 1.15 = 345px) */
+    }
+}
+
+/* Small Devices (Mobile Phones) - max-width: 768px */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 4%;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    .navbar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navbar a {
+        margin: 5px 15px;
+        font-size: 16px;
+    }
+
+    /* Home Section adjustments */
+    .home {
+        padding-top: 180px; /* Increased padding to clear taller mobile header */
+    }
+
+    .home-content h1 {
+        font-size: 40px;
+    }
+
+    .home-content h3 {
+        font-size: 24px;
+    }
+
+    .home-content p {
+        font-size: 16px;
+        margin: 10px auto 25px;
+    }
+
+    .btn-box a {
+        width: 140px;
+        height: 45px;
+        font-size: 17px;
+    }
+
+    .home-imgHover {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .home-sci a {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    /* About Section adjustments for mobile */
+    .about {
+        padding: 180px 4% 30px; /* Adjusted padding-top for header clearance */
+    }
+
+    .about-content .heading {
+        font-size: 40px;
+    }
+
+    .about-content h3 {
+        font-size: 18px;
+        margin: 0 auto 20px;
+    }
+
+    .skills-container {
+        flex-direction: column; /* Stack skill categories vertically */
+        gap: 15px;
+        margin: 0 auto 40px;
+    }
+
+    .skills-category {
+        flex: 1 1 100%; /* Take full width when stacked */
+        max-width: 100%;
+    }
+
+    .skills-category h4 {
+        font-size: 18px;
+    }
+
+    .skills-category ul li {
+        font-size: 15px;
+    }
+
+    .project-card:hover {
+        transform: scale(1.05); /* Subtle zoom for mobile. (Max 350px base * 1.05 = 367.5px) */
+        /* This is still quite large for smaller phones (e.g., iPhone SE is 320px wide). */
+        /* You might consider a very slight scale or no scale at all if overflow is critical. */
+    }
+}
+
+/* Very Small Devices (e.g., iPhone SE, older phones) - max-width: 480px */
+@media (max-width: 480px) {
+    .navbar a {
+        margin: 5px 10px;
+        font-size: 15px;
+    }
+
+    /* Home Section adjustments */
+    .home-content h1 {
+        font-size: 34px;
+    }
+
+    .home-content h3 {
+        font-size: 20px;
+    }
+
+    .home-content p {
+        font-size: 15px;
+        margin: 10px auto 20px;
+    }
+
+    .home-content .btn-box {
+        flex-direction: column; /* Stack buttons vertically */
+        height: auto; /* Adjust height based on stacked buttons */
+    }
+
+    .btn-box a {
+        width: 100%; /* Make buttons full width and stack */
+        margin-bottom: 10px; /* Space between stacked buttons */
+    }
+    .btn-box a:last-child {
+        margin-bottom: 0; /* No margin on the last button */
+    }
+
+    /* About Section adjustments */
+    .about {
+        padding: 180px 4% 20px; /* Adjusted padding-top for header clearance */
+    }
+
+    .about-content .heading {
+        font-size: 34px;
+    }
+
+    .about-content h3 {
+        font-size: 16px;
+    }
+
+    .skills-category {
+        padding: 15px;
+    }
+
+    .skills-category h4 {
+        font-size: 17px;
+    }
+
+    .skills-category ul li {
+        font-size: 14px;
+    }
+
+     .project-card:hover {
+        transform: scale(1.02); /* Very subtle zoom to prevent overflow on smallest screens. */
+        /* For extreme cases or if you want absolutely no overflow, you could use scale(1.0)
+           or even remove the transform property here to only have the flip effect. */
+    }
+}
+
+/* Landscape Mobile (Specific Adjustments if needed) - max-height: 450px and orientation: landscape */
+@media (max-height: 450px) and (orientation: landscape) {
+    .home {
+        padding: 0 4%;
+        padding-top: 100px; /* Adjust for potentially shorter header in landscape */
+        height: auto;
+        min-height: 100vh;
+        justify-content: flex-start;
+    }
+    .home-content {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .home-sci {
+        margin-bottom: 20px;
+    }
+
+    /* About Section adjustments for landscape mobile */
+    .about {
+        padding-top: 100px; /* Adjust for potentially shorter header in landscape */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* --- Projects Section Styles --- */
+.projects {
+    min-height: 100vh;
+    background: #081b29; /* Match your body/other section background */
+    padding: 130px 10% 80px; /* Adjusted padding-top for header clearance */
+    color: #ededed;
+    text-align: center; /* Center the heading */
+}
+
+.projects .heading {
+    font-size: 60px;
+    margin-bottom: 50px;
+    color: #ededed;
+}
+
+.projects .heading span {
+    color: #00abf0;
+}
+
+.projects-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allows cards to wrap onto new lines */
+    gap: 40px; /* Space between project cards */
+    max-width: 1200px; /* Max width for the container of cards */
+    margin: 0 auto; /* Center the container */
+}
+
+/* Project Card Base Styles & 3D Setup */
+.project-card {
+    background: #1f2c3d; /* Similar to skills-category background */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 171, 240, 0.2);
+    width: 320px; /* Fixed width for the cards */
+    height: 220px; /* Fixed height for the cards */
+    position: relative; /* Needed for absolute positioning of card-inner */
+    perspective: 1000px; /* Crucial for 3D effect on the parent */
+    transition: transform 0.5s ease-in-out, z-index 0s 0.8s; /* Transition for the zoom effect */
+    cursor: pointer; /* Indicate it's interactive */
+    overflow: hidden; /* Ensure content doesn't spill out during scale */
+    z-index: 1;
+}
+
+/* ------------------------------------------------------------- */
+/* --- NEW / MODIFIED: Hover for Desktop, .tapped for Touch --- */
+/* ------------------------------------------------------------- */
+
+/* Apply zoom effect ONLY on devices that support hover (e.g., desktop/laptop) */
+@media (hover: hover) and (pointer: fine) {
+    .project-card:hover {
+        transform: scale(1.1); /* Moderate zoom for desktop. Adjust as desired */
+        z-index: 10;
+        transition: transform 0.5s ease-in-out, z-index 0s;
+    }
+}
+
+/* Define the flip behavior when the card is hovered (desktop) OR has the 'tapped' class (touch) */
+.project-card:hover .card-inner,
+.project-card.tapped .card-inner { /* <-- NEW: Added .tapped class */
+    transform: rotateY(180deg); /* Flip on hover/tap */
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s; /* Duration of the flip animation */
+    transform-style: preserve-3d;
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: inherit;
+    background: #1f2c3d;
+}
+
+.card-front h3 {
+    font-size: 28px;
+    color: #ededed;
+    margin-bottom: 15px;
+}
+
+.card-front .project-icon {
+    font-size: 60px;
+    color: #00abf0;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background: #081b29;
+    box-shadow: inset 0 0 15px rgba(0, 171, 240, 0.4); 
+    align-items: flex-start;
+    text-align: left;
+}
+
+.card-back h4 {
+    font-size: 24px;
+    color: #00abf0;
+    margin-bottom: 10px;
+}
+
+.card-back p {
+    font-size: 16px;
+    color: #ededed;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.card-back .tech-used {
+    font-size: 15px;
+    color: #b0b0b0;
+    margin-bottom: 20px;
+}
+
+.card-links {
+    display: flex;
+    gap: 15px;
+    margin-top: auto;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn-project {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 15px;
+    background: #00abf0;
+    color: #081b29;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: .3s ease;
+    border: 1px solid #00abf0;
+}
+
+.btn-project:hover {
+    background: transparent;
+    color: #00abf0;
+}
+
+.btn-project i {
+    margin-left: 8px;
+    font-size: 18px;
+}
+
+.card-back .scrollable-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 8px;
+    margin-bottom: 15px;
+}
+/* Scrollbar styling for WebKit browsers */
+.card-back .scrollable-content::-webkit-scrollbar {
+    width: 8px;
+}
+.card-back .scrollable-content::-webkit-scrollbar-track {
+    background: #1f2c3d;
+    border-radius: 10px;
+}
+.card-back .scrollable-content::-webkit-scrollbar-thumb {
+    background-color: #00abf0;
+    border-radius: 10px;
+    border: 2px solid #1f2c3d;
+}
+/* Scrollbar styling for Firefox */
+.card-back .scrollable-content {
+    scrollbar-width: thin;
+    scrollbar-color: #00abf0 #1f2c3d;
+}
+
+/* Responsive Styles (keep these as they are) */
+/* ... your existing media queries for projects ... */
+@media (max-width: 992px) {
+    .projects {
+        padding: 120px 4% 60px;
+    }
+    .projects .heading {
+        font-size: 50px;
+        margin-bottom: 40px;
+    }
+    .projects-container {
+        gap: 30px;
+    }
+    .project-card {
+        width: 300px;
+        height: 200px;
+    }
+    /* Disable hover zoom entirely on smaller screens, rely on tap */
+    @media (hover: hover) and (pointer: fine) {
+        .project-card:hover {
+            transform: scale(1.0); /* No zoom on hover for smaller viewports */
+        }
+    }
+    .card-front h3 { font-size: 26px; }
+    .card-front .project-icon { font-size: 50px; }
+    .card-back h4 { font-size: 22px; }
+    .card-back p { font-size: 15px; }
+    .card-back .tech-used { font-size: 14px; }
+    .btn-project { font-size: 15px; padding: 7px 12px; }
+}
+
+@media (max-width: 768px) {
+    .projects {
+        padding: 100px 4% 50px;
+    }
+    .projects-container {
+        gap: 25px;
+    }
+    .project-card {
+        width: 280px;
+        height: 180px;
+    }
+    /* Ensure no hover zoom on small touch devices */
+    @media (hover: hover) and (pointer: fine) {
+        .project-card:hover {
+            transform: scale(1.0);
+        }
+    }
+    .card-front h3 { font-size: 24px; }
+    .card-front .project-icon { font-size: 45px; }
+    .card-back h4 { font-size: 20px; }
+    .card-back p { font-size: 14px; }
+    .card-back .tech-used { font-size: 13px; }
+    .btn-project { font-size: 14px; padding: 6px 10px; }
+}
+
+@media (max-width: 670px) {
+    .projects {
+        padding: 180px 4% 50px;
+    }
+    .projects .heading {
+        font-size: 40px;
+        margin-bottom: 30px;
+    }
+    .projects-container {
+        flex-direction: column;
+        gap: 25px;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    .project-card {
+        width: 100%;
+        height: 200px;
+    }
+    /* No hover zoom on these very small screens */
+    @media (hover: hover) and (pointer: fine) {
+        .project-card:hover {
+            transform: scale(1.0);
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .projects {
+        padding: 180px 4% 40px;
+    }
+    .projects .heading {
+        font-size: 34px;
+    }
+    .projects-container {
+        gap: 20px;
+    }
+    .project-card {
+        height: 180px;
+    }
+    /* No hover zoom on smallest screens */
+    @media (hover: hover) and (pointer: fine) {
+        .project-card:hover {
+            transform: scale(1.0);
+        }
+    }
+    .card-front h3 { font-size: 22px; }
+    .card-front .project-icon { font-size: 40px; }
+    .card-back h4 { font-size: 18px; }
+    .card-back p { font-size: 13px; }
+    .card-back .tech-used { font-size: 12px; }
+    .card-links { flex-direction: column; gap: 10px; }
+    .btn-project { width: 100%; font-size: 14px; padding: 8px; }
+}
+
+
+
+
+
+
+/* --- Services Section Styles --- */
+
+.services {
+    min-height: 100vh;
+    padding: 150px 9% 100px; /* Adjust padding to leave space for header */
+    background: var(--bg-color); /* Ensure consistent background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.services .heading {
+    text-align: center;
+    font-size: 70px;
+    margin-bottom: 70px;
+}
+
+.services .heading span {
+    color: #00abf0;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-block {
+    background: var(--second-bg-color);
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 171, 240, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* ----------------------------------------------------------------- */
+/* --- NEW / MODIFIED: Hover for Desktop, .service-active for Touch --- */
+/* ----------------------------------------------------------------- */
+
+/* Apply lift/shadow effect when hovered (desktop) OR has the 'service-active' class (touch) */
+.service-block:hover,
+.service-block.service-active { /* <-- NEW: Added .service-active class */
+    background: var(--main-color);
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px #00abf0;
+}
+
+.service-block .service-icon {
+    font-size: 80px;
+    color: var(--main-color);
+    margin-bottom: 20px;
+    transition: color 0.4s ease;
+}
+
+/* Apply icon color change when hovered (desktop) OR has the 'service-active' class (touch) */
+.service-block:hover .service-icon,
+.service-block.service-active .service-icon { /* <-- NEW: Added .service-active class */
+    color: #00abf0;
+}
+
+.service-block h3 {
+    font-size: 28px;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.service-block p {
+    font-size: 16px;
+    color: var(--text-color);
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+/* Responsive Adjustments (keep these as they are) */
+/* ... your existing media queries for services ... */
+@media (max-width: 992px) {
+    .services {
+        padding: 120px 6% 80px;
+    }
+    .services .heading {
+        font-size: 60px;
+        margin-bottom: 60px;
+    }
+    .services-container {
+        grid-template-columns: repeat(auto-fit, minminmax(300px, 1fr));
+        gap: 30px;
+    }
+    .service-block {
+        padding: 35px 25px;
+    }
+    .service-block .service-icon {
+        font-size: 70px;
+        margin-bottom: 15px;
+    }
+    .service-block h3 {
+        font-size: 24px;
+    }
+    .service-block p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .services {
+        padding: 100px 4% 60px;
+    }
+    .services .heading {
+        font-size: 50px;
+        margin-bottom: 50px;
+    }
+    .services-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    .service-block {
+        padding: 30px 20px;
+    }
+    .service-block .service-icon {
+        font-size: 60px;
+        margin-bottom: 12px;
+    }
+    .service-block h3 {
+        font-size: 22px;
+    }
+    .service-block p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 670px) {
+    .services {
+        padding: 160px 4% 50px;
+    }
+    .services .heading {
+        font-size: 40px;
+        margin-bottom: 40px;
+    }
+    .services-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 380px;
+    }
+    .service-block {
+        padding: 25px 20px;
+    }
+    .service-block .service-icon {
+        font-size: 50px;
+        margin-bottom: 10px;
+    }
+    .service-block h3 {
+        font-size: 20px;
+    }
+    .service-block p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services {
+        padding: 140px 4% 40px;
+    }
+    .services .heading {
+        font-size: 34px;
+        margin-bottom: 30px;
+    }
+    .service-block h3 {
+        font-size: 18px;
+    }
+    .service-block p {
+        font-size: 13px;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* --- Contact Form Styles --- */
+
+/* Overall container for the form, similar to .services section structure */
+.form-container {
+    /* Adjust padding to give space around the form, similar to your sections */
+    padding: 100px 9% 80px; 
+    background: var(--bg-color); /* Consistent background color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container h2 {
+    text-align: center;
+    font-size: 50px; /* Adjust as needed, similar to a sub-heading */
+    margin-bottom: 50px;
+    color: var(--text-color); /* Use your text color variable */
+}
+
+/* The form itself */
+#contactForm {
+    display: grid; /* Use grid for layout, similar to services-container */
+    /* Adjust gap between form fields */
+    gap: 20px; 
+    width: 100%;
+    max-width: 600px; /* Max width for the form itself */
+    margin: 0 auto; /* Center the form */
+    background: var(--second-bg-color); /* Use secondary background color */
+    padding: 40px; /* Inner padding for the form box */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 0 15px rgba(0, 171, 240, 0.2); /* Subtle shadow like service blocks */
+}
+
+#contactForm label {
+    font-size: 18px; /* Slightly larger labels */
+    color: var(--text-color); /* Text color for labels */
+    font-weight: 600; /* Make labels a bit bolder */
+    margin-bottom: 5px; /* Space between label and input */
+    display: block; /* Ensure labels take full width */
+}
+
+#contactForm input[type="text"],
+#contactForm input[type="email"],
+#contactForm input[type="number"],
+#contactForm select,
+#contactForm textarea {
+    width: 100%;
+    padding: 12px 15px; /* Comfortable padding */
+    border: 1px solid var(--main-color); /* Border with your main accent color */
+    border-radius: 8px; /* Slightly rounded input fields */
+    background-color: var(--bg-color); /* A darker background for inputs */
+    color: var(--text-color); /* Input text color */
+    font-size: 16px;
+    box-sizing: border-box; /* Include padding in width calculation */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+     box-shadow: 0 0 10px rgba(0, 171, 240, 0.3);
+}
+
+#contactForm input[type="text"]:focus,
+#contactForm input[type="email"]:focus,
+#contactForm input[type="number"]:focus,
+#contactForm select:focus,
+#contactForm textarea:focus {
+    border-color: #00abf0; /* Accent color on focus */
+    box-shadow: 0 0 0 3px rgba(0, 171, 240, 0.4); /* Glow effect on focus */
+    outline: none; /* Remove default outline */
+}
+
+#contactForm textarea {
+    resize: vertical; /* Allow vertical resizing only */
+    min-height: 120px; /* Minimum height for textarea */
+}
+
+#contactForm button[type="submit"] {
+    background-color: var(--main-color); /* Use your main accent color */
+    color: var(--second-bg-color); /* Contrast color for button text */
+    padding: 14px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    width: 100%; /* Make button full width of form */
+}
+
+#contactForm button[type="submit"]:hover:not(:disabled) {
+    background-color: #00abf0; /* Darker shade or more vibrant on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0 5px 15px rgba(0, 171, 240, 0.4); /* More pronounced shadow on hover */
+}
+
+#contactForm button[type="submit"]:disabled {
+    background-color: #888; /* Grey out when disabled */
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.7; /* Slightly faded */
+}
+
+
+/* Message display area */
+#formMessage {
+    text-align: center;
+    margin-top: 25px; /* More space above message */
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+#formMessage.success {
+    background-color: #d4edda; /* Light green from previous success */
+    color: #155724; /* Dark green text */
+    border: 1px solid #c3e6cb;
+}
+
+#formMessage.error {
+    background-color: #f8d7da; /* Light red from previous error */
+    color: #721c24; /* Dark red text */
+    border: 1px solid #f5c6cb;
+}
+
+
+/* --- Responsive Adjustments for Form (Similar to your services section) --- */
+
+/* Medium Devices (Tablets, smaller desktops) - up to 992px */
+@media (max-width: 992px) {
+    .form-container {
+        padding: 80px 6% 60px;
+    }
+    .form-container h2 {
+        font-size: 45px;
+        margin-bottom: 40px;
+    }
+    #contactForm {
+        padding: 35px;
+        max-width: 500px;
+    }
+    #contactForm label {
+        font-size: 17px;
+    }
+    #contactForm input, #contactForm select, #contactForm textarea, #contactForm button {
+        font-size: 15px;
+        padding: 10px 12px;
+    }
+    #formMessage {
+        font-size: 16px;
+    }
+}
+
+/* Small Devices (Larger Phones, Small Tablets) - up to 768px */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 60px 4% 40px;
+         padding-top: 100px;
+    }
+    .form-container h2 {
+        font-size: 38px;
+        margin-bottom: 30px;
+    }
+    #contactForm {
+        padding: 30px;
+        gap: 15px;
+        max-width: 400px;
+    }
+    #contactForm label {
+        font-size: 16px;
+    }
+    #contactForm input, #contactForm select, #contactForm textarea, #contactForm button {
+        font-size: 14px;
+        padding: 9px 10px;
+    }
+    #formMessage {
+        font-size: 15px;
+    }
+}
+
+/* Very Small Devices (Phones) - up to 670px */
+@media (max-width: 670px) {
+    .form-container {
+        padding: 50px 4% 30px;
+        padding-top: 120px;
+    }
+    .form-container h2 {
+        font-size: 32px;
+        margin-bottom: 25px;
+    }
+    #contactForm {
+        padding: 25px;
+        gap: 12px;
+        max-width: 320px;
+    }
+    #contactForm label {
+        font-size: 15px;
+    }
+    #contactForm input, #contactForm select, #contactForm textarea, #contactForm button {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+    #formMessage {
+        font-size: 14px;
+    }
+}

@@ -686,6 +686,10 @@ body.active-animation .home-imgHover {
         font-size: 15px;
     }
 
+    .home{
+        background-position: 70% center;
+    }
+
     /* Home Section adjustments */
     .home-content h1 {
         font-size: 34px;

@@ -1052,23 +1052,76 @@ body.active-animation .home-imgHover {
         gap: 20px;
     }
     .project-card {
-        height: 180px;
+        height: 180px; /* Keep this height, we'll try to fit content within it */
     }
+
     /* No hover zoom on smallest screens */
     @media (hover: hover) and (pointer: fine) {
         .project-card:hover {
             transform: scale(1.0);
         }
     }
-    .card-front h3 { font-size: 22px; }
-    .card-front .project-icon { font-size: 40px; }
-    .card-back h4 { font-size: 18px; }
-    .card-back p { font-size: 13px; }
-    .card-back .tech-used { font-size: 12px; }
-    .card-links { flex-direction: column; gap: 10px; }
-    .btn-project { width: 100%; font-size: 14px; padding: 8px; }
-}
 
+    /* --- CONSOLIDATED AND CORRECTED STYLES FOR CARD BACK AND BUTTONS --- */
+
+    /* Adjust padding for the back of the card to maximize inner space */
+    .card-back {
+        padding: 10px 10px 15px 10px; /* Reduced to save space */
+        text-align: center;
+        align-items: center;
+        display: flex; /* Ensure it's a flex container */
+        flex-direction: column; /* Keep content (text + links) stacked vertically inside card-back */
+        justify-content: space-between; /* Distribute space between content and buttons */
+    }
+
+    /* Reduce vertical margins for all text elements */
+    .card-back h4 {
+        font-size: 16px; /* Slightly smaller heading */
+        margin-bottom: 3px; /* Minimal margin */
+    }
+    .card-back p {
+        font-size: 12px; /* Smallest comfortable text size */
+        margin-bottom: 3px; /* Minimal margin */
+    }
+    .card-back .tech-used {
+        font-size: 11px; /* Smallest comfortable text size */
+        margin-bottom: 5px; /* Reduced margin */
+    }
+
+    /* Adjust scrollable content margin and padding */
+    .card-back .scrollable-content {
+        flex-grow: 1; /* Allow it to take available space */
+        overflow-y: auto; /* Keep scroll if content is too long */
+        padding-right: 2px; /* Minimal padding for scrollbar */
+        margin-bottom: 5px; /* Reduced margin before buttons */
+    }
+
+    /* Make buttons horizontal and spaced out */
+    .card-links {
+        display: flex;
+        flex-direction: row; /* <-- THIS IS THE CRITICAL CHANGE FOR HORIZONTAL LAYOUT */
+        justify-content: space-around; /* Distribute space evenly between and around the buttons */
+        align-items: center; /* Vertically center buttons */
+        gap: 4px; /* Space between the two horizontal buttons */
+        margin-top: auto; /* Push buttons to the bottom */
+        width: 100%; /* Ensure the container takes full available width */
+        max-width: none; /* Override any previous max-width to allow full horizontal distribution */
+    }
+
+    /* Make buttons as compact as possible for horizontal fit */
+    .btn-project {
+        flex: 1; /* Allows buttons to grow and shrink to fill available space equally */
+        min-width: 70px; /* Adjusted min-width to prevent them from becoming too small */
+        max-width: 120px; /* Adjusted max-width to prevent them from becoming too wide */
+        font-size: 10px; /* Very small button text */
+        padding: 4px 6px; /* Very small vertical and horizontal padding */
+        line-height: 1; /* Tight line height for button text */
+    }
+    .btn-project i { /* Adjust Boxicon size to match smaller text */
+        font-size: 12px;
+        margin-left: 3px;
+    }
+}
 
 
 
